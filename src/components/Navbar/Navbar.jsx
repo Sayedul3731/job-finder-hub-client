@@ -12,7 +12,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-gradient-to-r from-sky-500 to-blue-500 text-white">
       <div className="navbar-start">
         <div>
           <img className="w-16 h-12 hidden lg:flex" src="logo.png" alt="" />
