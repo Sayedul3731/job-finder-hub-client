@@ -1,5 +1,6 @@
 import Banner from "../../components/Banner/Banner";
 import JobByCategory from "../../components/JobByCategory/JobByCategory";
+import JobsByLocation from "../../components/JobsByLocation/JobsByLocation";
 import Recruiters from "../../components/Recruiters/Recruiters";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <Banner></Banner>
       <JobByCategory></JobByCategory>
       <Recruiters></Recruiters>
+      <JobsByLocation></JobsByLocation>
     </div>
   );
 };
