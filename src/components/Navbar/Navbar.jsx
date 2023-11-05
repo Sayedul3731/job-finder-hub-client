@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+
 const Navbar = () => {
   const navLinks = (
     <>
@@ -20,6 +21,9 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
+        <div>
+          <img className="w-16 h-12 hidden lg:flex" src="logo.png" alt="" />
+        </div>
         <div className="dropdown">
           <label tabIndex={0} className=" lg:hidden">
             <svg
@@ -44,7 +48,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className=" normal-case text-xl font-bold pl-2 lg:pl-0">
+        <a className=" normal-case text-xl font-bold pl-3 lg:pl-1">
           JobFinderHub
         </a>
       </div>
