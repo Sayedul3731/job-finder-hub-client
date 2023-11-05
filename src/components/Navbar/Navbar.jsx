@@ -3,19 +3,12 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   const navLinks = (
     <>
-      <li>
-        <NavLink className="lg:text-xl md:font-medium mr-4" to="/">
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0"
-          to="/"
-        >
-          All Jobs
-        </NavLink>
-      </li>
+      <li><NavLink className="lg:text-xl md:font-medium mr-4" to="/">Home</NavLink></li>
+      <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/allJobs">All Jobs</NavLink></li>
+      <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/appliedJobs">Applied Jobs</NavLink></li>
+      <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/addJob">Add A Job</NavLink></li>
+      <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/myJobs">My Jobs</NavLink></li>
+      <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/blogs">Blogs</NavLink></li>
     </>
   );
   return (
@@ -56,7 +49,9 @@ const Navbar = () => {
         <ul className="flex px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <a className="bg-sky-400 text-xl px-3 py-1 font-bold rounded-sm">
+          Login
+        </a>
       </div>
     </div>
   );
