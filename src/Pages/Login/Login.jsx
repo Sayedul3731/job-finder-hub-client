@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
     return (
-        <div className="lg:pt-40 min-h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
+        <div className="lg:pt-40 min-h-screen bg-gradient-to-r from-blue-500 to-sky-500">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl text-white font-bold">Login now!</h1>
