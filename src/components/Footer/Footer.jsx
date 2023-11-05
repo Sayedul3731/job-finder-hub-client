@@ -8,7 +8,7 @@ const Footer = () => {
         <aside>
           <img className="w-20 rounded-sm" src="/logo.png" alt="" />
           <p className="font-bold">
-            JobFinderHub Ltd. <br />
+            <span className="text-3xl">JobFinderHub Ltd.</span> <br />
             Providing reliable tech since 2012
           </p>
         
