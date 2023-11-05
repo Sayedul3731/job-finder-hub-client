@@ -35,12 +35,12 @@ const Footer = () => {
               </Link>
             </div>
             <div>
-              <Link to="https://www.facebook.com/" target="blank">
+              <Link to="https://www.youtube.com/" target="blank">
                 <BsYoutube className="text-3xl"></BsYoutube>
               </Link>
             </div>
             <div>
-              <Link to="https://www.facebook.com/" target="blank">
+              <Link to="https://www.instagram.com/" target="blank">
                 <BsInstagram className="text-3xl"></BsInstagram>
               </Link>
             </div>

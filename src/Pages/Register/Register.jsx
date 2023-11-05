@@ -3,34 +3,42 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
     return (
-        <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="lg:pt-40 min-h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
+            <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Register now!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <h1 className="text-5xl text-white font-bold">Register now!</h1>
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form className="card-body">
+                <div className="rounded-sm border-r border-l px-5 mt-10 w-1/2">
+                    <form className="">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text  text-lg">Name</span>
+                            </label>
+                            <input type="text" placeholder="Name" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text  text-lg">Photo</span>
+                            </label>
+                            <input type="text" placeholder="photoURL" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-lg">Email</span>
                             </label>
                             <input type="email" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text text-lg">Password</span>
                             </label>
                             <input type="password" placeholder="password" className="input input-bordered" required />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register</button>
+                            <button className="btn bg-sky-500 text-white hover:text-black">Register</button>
                         </div>
                     </form>
-                    <p className="mb-4 text-center">Already Have an Account? Please <Link to="/login"><span className="text-lg font-semibold text-sky-400">Login</span></Link></p>
+                    <p className="mb-4 text-center text-white">Already Have an Account? Please <Link to="/login"><span className="text-lg font-semibold text-yellow-400">Login</span></Link></p>
                 </div>
             </div>
         </div>
