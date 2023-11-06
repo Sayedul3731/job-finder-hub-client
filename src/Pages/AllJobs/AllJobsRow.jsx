@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 
 const AllJobsRow = ({ job }) => {
-    const {name, title, jobPostingDate, deadline, salary} = job;
+    const {_id, name, title, jobPostingDate, deadline, salary} = job;
     return (
         <tr className="text-base">
             <td>
@@ -23,7 +25,7 @@ const AllJobsRow = ({ job }) => {
             </td>
             <td>{salary}</td>
             <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <Link to={`/allJobs/:${_id}`} className="btn btn-ghost btn-xs">details</Link>
             </th>
         </tr>
     );
