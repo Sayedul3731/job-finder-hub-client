@@ -56,7 +56,7 @@ const Register = () => {
                                 <span className="label-text text-lg">Password</span>
                             </label>
                             <input type={show ? 'text' : 'password'} name="password" placeholder="password" className="input input-bordered" required />
-                            <div onClick={() => setShow(!show)} className="absolute ml-[406px] mt-[62px] cursor-pointer">
+                            <div onClick={() => setShow(!show)} className="absolute ml-[276px] md:ml-[302px] lg:ml-[550px] mt-[62px] cursor-pointer">
                                 {
                                     show ? <BsFillEyeSlashFill></BsFillEyeSlashFill> : <BsFillEyeFill></BsFillEyeFill> 
                                 }
