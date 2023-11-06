@@ -1,4 +1,4 @@
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 
 const AddAJob = () => {
@@ -7,32 +7,35 @@ const AddAJob = () => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;
-        const brand = form.brand.value;
-        const type = form.type.value;
-        const price = form.price.value;
+        const category = form.category.value;
+        const title = form.title.value;
+        const salary = form.salary.value;
         const description = form.description.value;
-        const rating = form.rating.value;
+        const jobPostingDate = form.jobPostingDate.value;
+        const deadline = form.deadline.value;
+        const applicants = form.applicants.value;
         const photo = form.photo.value;
-        const newProduct = {name, brand, type, price, description, rating, photo};
-        console.log(newProduct);
-        fetch('https://technology-and-electronics-server-pjepewb2m-ate-yours-projects.vercel.app/product', {
-            method: "POST",
-            headers: {
-                "content-type" : "application/json"
-            },
-            body: JSON.stringify(newProduct)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.insertedId){
-                Swal.fire(
-                    'Success!',
-                    'Product added Successfully.',
-                    'success'
-                  )
-            }
-        })
+        const logo = form.logo.value;
+        const newJob = {name, category, title, salary, description, jobPostingDate, deadline, applicants, logo, photo};
+        console.log(newJob);
+        // fetch('https://technology-and-electronics-server-pjepewb2m-ate-yours-projects.vercel.app/product', {
+        //     method: "POST",
+        //     headers: {
+        //         "content-type" : "application/json"
+        //     },
+        //     body: JSON.stringify(newProduct)
+        // })
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log(data);
+        //     if(data.insertedId){
+        //         Swal.fire(
+        //             'Success!',
+        //             'Product added Successfully.',
+        //             'success'
+        //           )
+        //     }
+        // })
     }
     return (
         <div className="bg-gradient-to-r from-sky-400 to-blue-300 pb-10 pt-10 md:pt-7  p-1 md:p-24">
@@ -73,7 +76,7 @@ const AddAJob = () => {
                         <span className="label-text text-lg">Salary Range</span>
                     </label>
                     <label className="input-group">
-                        <input type="number" name="salary" placeholder="Salary Range" className="input input-bordered w-full md:w-full" />
+                        <input type="text" name="salary" placeholder="Salary Range" className="input input-bordered w-full md:w-full" />
                     </label>
                 </div>
             </div>
@@ -92,7 +95,7 @@ const AddAJob = () => {
                         <span className="label-text text-lg">Job Posting Date</span>
                     </label>
                     <label className="input-group">
-                        <input type="date" name="date" placeholder="Job Posting Date" className="input input-bordered w-full md:w-full" />
+                        <input type="date" name="jobPostingDate" placeholder="Job Posting Date" className="input input-bordered w-full md:w-full" />
                     </label>
                 </div>
             </div>
@@ -130,7 +133,7 @@ const AddAJob = () => {
                         <span className="label-text text-lg">Logo</span>
                     </label>
                     <label className="input-group">
-                        <input type="text" name="photo" placeholder="Company LogoURL" className="input input-bordered w-full md:w-full" />
+                        <input type="text" name="logo" placeholder="Company LogoURL" className="input input-bordered w-full md:w-full" />
                     </label>
                 </div>
             </div>
