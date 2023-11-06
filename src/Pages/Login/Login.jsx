@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useContext } from "react"
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -18,6 +19,11 @@ const Login = () => {
         login(email, password)
         .then(res => {
             console.log(res.user);
+            Swal.fire(
+                'Succes!',
+                'User Logged In Successfully.',
+                'success'
+              )
         })
         .catch(error => {
             console.error(error);

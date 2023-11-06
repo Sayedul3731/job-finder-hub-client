@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { useContext, useState } from "react"
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
+import Swal from "sweetalert2";
 
 
 const Register = () => {
@@ -20,6 +21,11 @@ const Register = () => {
         userCreate(email, password)
         .then( res => {
             console.log(res.user);
+            Swal.fire(
+                'Succes!',
+                'User Created Successfully.',
+                'success'
+              )
         })
         .catch(error => {
             console.error(error);
