@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useContext } from "react"
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
+import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -8,7 +9,8 @@ import Swal from "sweetalert2";
 const Login = () => {
     const [show, setShow] = useState(false)
 
-    const {login} = useContext(AuthContext)
+    const { login, logInWithGoogle } = useContext(AuthContext)
+
 
     const handleLogin = e => {
         e.preventDefault()
@@ -17,18 +19,33 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
         login(email, password)
-        .then(res => {
-            console.log(res.user);
-            Swal.fire(
-                'Succes!',
-                'User Logged In Successfully.',
-                'success'
-              )
-        })
-        .catch(error => {
-            console.error(error);
-        })
-      
+            .then(res => {
+                console.log(res.user);
+                Swal.fire(
+                    'Succes!',
+                    'User Logged In Successfully.',
+                    'success'
+                )
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
+    }
+
+    const signInWithGoogle = () => {
+        logInWithGoogle()
+            .then(res => {
+                console.log(res.user);
+                Swal.fire(
+                    'Succes!',
+                    'User Logged In Successfully.',
+                    'success'
+                )
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
     return (
         <div className="lg:pt-40 min-h-screen bg-gradient-to-r from-blue-500 to-sky-500">
@@ -51,14 +68,18 @@ const Login = () => {
                             <input type={show ? 'text' : 'password'} name="password" placeholder="password" className="input input-bordered" required />
                             <div onClick={() => setShow(!show)} className="absolute ml-[276px] md:ml-[302px] lg:ml-[550px] mt-[62px] cursor-pointer">
                                 {
-                                    show ? <BsFillEyeSlashFill></BsFillEyeSlashFill> : <BsFillEyeFill></BsFillEyeFill> 
+                                    show ? <BsFillEyeSlashFill></BsFillEyeSlashFill> : <BsFillEyeFill></BsFillEyeFill>
                                 }
                             </div>
                         </div>
                         <div className="form-control mt-6">
-                            <button type="submit" className="btn bg-sky-500 text-white hover:text-black">Login</button>
+                            <button type="submit" className="btn text-xl bg-sky-500 text-white hover:text-black">Login</button>
                         </div>
                     </form>
+                    <div onClick={signInWithGoogle} className="border flex justify-center items-center bg-sky-500 text-white gap-5 mt-5 text-center py-2 text-xl font-semibold cursor-pointer">
+                        <span><FcGoogle></FcGoogle></span>
+                        <p>Login With Google</p>
+                    </div>
                     <p className="mb-4 text-center text-white">Do not Have an Account? Please <Link to="/register"><span className="text-lg font-semibold text-yellow-400">Register</span></Link></p>
                 </div>
             </div>
