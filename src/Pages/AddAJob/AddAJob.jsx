@@ -1,4 +1,4 @@
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 
 
 const AddAJob = () => {
@@ -28,17 +28,17 @@ const AddAJob = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            // if(data.insertedId){
-            //     Swal.fire(
-            //         'Success!',
-            //         'Product added Successfully.',
-            //         'success'
-            //       )
-            // }
+            if(data.insertedId){
+                Swal.fire(
+                    'Success!',
+                    'Job added Successfully.',
+                    'success'
+                  )
+            }
         })
     }
     return (
-        <div className="bg-gradient-to-r from-sky-500 to-green-500 pb-10 pt-10 md:pt-7  p-1 md:p-24">
+        <div className="bg-gradient-to-r from-sky-600 to-green-600 pb-10 pt-10 md:pt-7  p-1 md:p-24">
         <h1 className="text-4xl font-semibold text-center mb-10">Add A Job</h1>
 
         <form onSubmit={handleAddJob}>
