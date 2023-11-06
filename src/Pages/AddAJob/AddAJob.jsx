@@ -63,7 +63,7 @@ const AddAJob = () => {
                             <span className="label-text text-lg">Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" placeholder="Logged User Name" className="input input-bordered w-full md:w-full" />
+                            <input type="text" name="name" defaultValue={user ? user?.displayName : ''} placeholder="Logged User Name" className="input input-bordered w-full md:w-full" />
                         </label>
                     </div>
                     <div className="form-control w-full">
@@ -71,7 +71,7 @@ const AddAJob = () => {
                             <span className="label-text text-lg">Email</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="email" defaultValue={user ? user.email : ''} placeholder="Logged User Email" className="input input-bordered w-full md:w-full" />
+                            <input type="text" name="email" defaultValue={user ? user?.email : ''} placeholder="Logged User Email" className="input input-bordered w-full md:w-full" />
                         </label>
                     </div>
                 </div>
