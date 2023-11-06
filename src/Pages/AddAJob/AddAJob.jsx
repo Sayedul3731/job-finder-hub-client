@@ -3,7 +3,7 @@
 
 const AddAJob = () => {
 
-    const handleAddProduct = e => {
+    const handleAddJob = e => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;
@@ -18,30 +18,30 @@ const AddAJob = () => {
         const logo = form.logo.value;
         const newJob = {name, category, title, salary, description, jobPostingDate, deadline, applicants, logo, photo};
         console.log(newJob);
-        // fetch('https://technology-and-electronics-server-pjepewb2m-ate-yours-projects.vercel.app/product', {
-        //     method: "POST",
-        //     headers: {
-        //         "content-type" : "application/json"
-        //     },
-        //     body: JSON.stringify(newProduct)
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log(data);
-        //     if(data.insertedId){
-        //         Swal.fire(
-        //             'Success!',
-        //             'Product added Successfully.',
-        //             'success'
-        //           )
-        //     }
-        // })
+        fetch('http://localhost:5000/addAJob', {
+            method: "POST",
+            headers: {
+                "content-type" : "application/json"
+            },
+            body: JSON.stringify(newJob)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            // if(data.insertedId){
+            //     Swal.fire(
+            //         'Success!',
+            //         'Product added Successfully.',
+            //         'success'
+            //       )
+            // }
+        })
     }
     return (
-        <div className="bg-gradient-to-r from-sky-400 to-blue-300 pb-10 pt-10 md:pt-7  p-1 md:p-24">
+        <div className="bg-gradient-to-r from-sky-500 to-green-500 pb-10 pt-10 md:pt-7  p-1 md:p-24">
         <h1 className="text-4xl font-semibold text-center mb-10">Add A Job</h1>
 
-        <form onSubmit={handleAddProduct}>
+        <form onSubmit={handleAddJob}>
             {/* form row  */}
                 <div className="form-control w-full">
                     <label className="label">
