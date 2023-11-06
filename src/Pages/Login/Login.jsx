@@ -8,7 +8,7 @@ const Login = () => {
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl text-white font-bold">Login now!</h1>
                 </div>
-                <div className="rounded-sm border-t border-b px-5 mt-10 w-1/2">
+                <div className="rounded-sm border-t border-b px-5 mt-10 w-full md:w-1/2">
                     <form className="">
                         <div className="form-control">
                             <label className="label">
