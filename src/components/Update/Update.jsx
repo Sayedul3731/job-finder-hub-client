@@ -2,6 +2,7 @@ import axios from "axios";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import {useContext} from "react"
 import {useLoaderData} from "react-router-dom"
+import Swal from "sweetalert2";
 
 
 const Update = () => {
@@ -30,6 +31,13 @@ const Update = () => {
         axios.patch(`http://localhost:5000/update/${_id}`, updateJob)
         .then(res => {
             console.log(res.data);
+            if(res?.data?.modifiedCount > 0){
+                Swal.fire(
+                    'Success!',
+                    'Job Updated Successfully.',
+                    'success'
+                )
+            }
         })
         console.log('clicked update button');
     }
