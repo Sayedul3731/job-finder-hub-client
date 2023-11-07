@@ -21,7 +21,7 @@ const AddAJob = () => {
         const applicants = form.applicants.value;
         const photo = form.photo.value;
         const logo = form.logo.value;
-        const newJob = { name, category, title, salary, description, jobPostingDate, deadline, applicants, logo, photo };
+        const newJob = { name, category, title, salary, description, jobPostingDate, deadline, applicants: parseInt(applicants), logo, photo };
         console.log(newJob);
         fetch('http://localhost:5000/addAJob', {
             method: "POST",

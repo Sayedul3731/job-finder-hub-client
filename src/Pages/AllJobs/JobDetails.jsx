@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom"
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import axios from "axios"
+import Swal from "sweetalert2";
 
 
 
@@ -11,7 +12,7 @@ const JobDetails = () => {
 
     const { user } = useContext(AuthContext)
 
-  
+
 
     const job = useLoaderData()
     console.log(job);
@@ -19,11 +20,33 @@ const JobDetails = () => {
 
     const handleSubmit = () => {
         console.log('clicked on the submit button');
+        const { deadline } = job;
+        const dateObject = new Date(deadline);
+        const jobDeadline = dateObject.getTime()
+        console.log(jobDeadline);
+        const currentDate = Date.now()
+        console.log(currentDate);
+        if (jobDeadline >= currentDate) {
             axios.post('http://localhost:5000/allJobs/:id', job)
                 .then(res => {
                     console.log(res.data)
+                    if(res?.data?.insertedId){
+                        Swal.fire(
+                            'Success!',
+                            'Submitted Successfully.',
+                            'success'
+                        )
+                    }
                 })
-       
+        }else{
+            Swal.fire(
+                'ERROR!',
+                'Deadline Is Over.',
+                'error'
+            )
+        }
+
+
 
     }
     return (
