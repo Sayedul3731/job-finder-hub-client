@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 
 
-const JobByCategory = ({onSiteJob, remoteJob}) => {
-    const {title, salary, jobPostingDate, deadline, applicants, name} = onSiteJob || remoteJob;
+const JobByCategory = ({onSiteJob, remoteJob, hybridJob, partTimeJob,fullTimeJob,contractJob}) => {
+    const {title, salary, jobPostingDate, deadline, applicants, name} = onSiteJob || remoteJob || hybridJob || partTimeJob || fullTimeJob || contractJob;
     return (
         <div className="py-10 w-[400px]">
             <div className=" bg-base-100 shadow-sm border border-sky-500 mx-auto">

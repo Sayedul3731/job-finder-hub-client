@@ -62,7 +62,7 @@ const AddAJob = () => {
                         <input type="text" name="category" defaultValue={selectedCategory} placeholder="Job Category" className="input input-bordered w-full md:w-full" />
                         <select value={selectedCategory} onChange={handleSelectedCategory} name="" id="">
 
-                            <option value="On Site">On Site</option>
+                            <option value="On Site Job">On Site Job</option>
                             <option value="Remote Job">Remote Job</option>
                             <option value="Hybrid Job">Hybrid Job</option>
                             <option value="Part Time Job">Part Time Job</option>
