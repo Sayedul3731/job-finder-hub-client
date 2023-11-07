@@ -3,11 +3,13 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { useContext, useState } from "react"
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
     const [show, setShow] = useState(false)
     const { userCreate } = useContext(AuthContext)
+
 
     const handleRegister = e => {
         e.preventDefault()
@@ -16,20 +18,28 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        const user = { name, photo, email, password}
+        const user = { name, photo, email, password }
         console.log(user);
         userCreate(email, password)
-        .then( res => {
-            console.log(res.user);
-            Swal.fire(
-                'Succes!',
-                'User Created Successfully.',
-                'success'
-              )
-        })
-        .catch(error => {
-            console.error(error);
-        })
+            .then(res => {
+                console.log(res.user);
+                Swal.fire(
+                    'Succes!',
+                    'User Created Successfully.',
+                    'success'
+                )
+                updateProfile( res.user,{
+                    displayName: name,
+                    photoURL: photo
+                })
+                    .then( () => console.log('profile updated'))
+                    .catch(error => {
+                        console.log(error);
+                    })
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
     return (
         <div className="lg:pt-40 min-h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
@@ -64,7 +74,7 @@ const Register = () => {
                             <input type={show ? 'text' : 'password'} name="password" placeholder="password" className="input input-bordered" required />
                             <div onClick={() => setShow(!show)} className="absolute ml-[276px] md:ml-[302px] lg:ml-[550px] mt-[62px] cursor-pointer">
                                 {
-                                    show ? <BsFillEyeSlashFill></BsFillEyeSlashFill> : <BsFillEyeFill></BsFillEyeFill> 
+                                    show ? <BsFillEyeSlashFill></BsFillEyeSlashFill> : <BsFillEyeFill></BsFillEyeFill>
                                 }
                             </div>
                         </div>

@@ -3,15 +3,29 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom"
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import axios from "axios"
+
 
 
 const JobDetails = () => {
 
-    const {user } = useContext(AuthContext)
-   
+    const { user } = useContext(AuthContext)
+
+  
+
     const job = useLoaderData()
     console.log(job);
     const { logo, title, description, salary, applicants } = job;
+
+    const handleSubmit = () => {
+        console.log('clicked on the submit button');
+            axios.post('http://localhost:5000/allJobs/:id', job)
+                .then(res => {
+                    console.log(res.data)
+                })
+       
+
+    }
     return (
         <div className="py-10">
             <div className="min-h-screen bg-base-100 shadow-sm border border-sky-500 w-5/6 mx-auto">
@@ -61,7 +75,7 @@ const JobDetails = () => {
                                     <div className="modal-action">
                                         <form method="dialog">
                                             {/* if there is a button in form, it will close the modal */}
-                                            <button className="btn">Close</button>
+                                            <button onClick={handleSubmit} className="btn">Submit</button>
                                         </form>
                                     </div>
                                 </form>
