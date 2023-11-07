@@ -67,7 +67,6 @@ const AddAJob = () => {
                             <option value="Hybrid Job">Hybrid Job</option>
                             <option value="Part Time Job">Part Time Job</option>
                             <option value="Full Time Job">Full Time Job</option>
-                            <option value="Contract Job">Contract Job</option>
                             
                         </select>
                     </label>

@@ -16,7 +16,7 @@ const JobDetails = () => {
 
     const job = useLoaderData()
     console.log(job);
-    const { logo, title, description, salary, applicants } = job;
+    const { logo, title, description, salary, applicants,photo } = job;
 
     const handleSubmit = () => {
         console.log('clicked on the submit button');
@@ -61,8 +61,8 @@ const JobDetails = () => {
                         <p className="text-5xl font-semibold mb-2">WE ARE <br /> HIRING...</p>
                         <p className="text-xl font-semibold">We are looking for talented to fill these vacancies.</p>
                     </div>
-                    <div>
-                        <img src="/banner.png" alt="" />
+                    <div className=" h-full">
+                        <img className="h-full object-cover" src={photo} alt="" />
                     </div>
                 </div>
                 <div className="card-body mt-5">
