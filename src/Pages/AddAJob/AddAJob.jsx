@@ -1,12 +1,18 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
 
 const AddAJob = () => {
-
+    const [selectedCategory, setSelectedCategory] = useState('')
     const { user } = useContext(AuthContext)
     console.log(user);
+
+    const handleSelectedCategory = (e) => {
+        e.preventDefault()
+        console.log(e.target.value);
+        setSelectedCategory(e.target.value)
+    }
 
     const handleAddJob = e => {
         e.preventDefault()
@@ -53,7 +59,17 @@ const AddAJob = () => {
                         <span className="label-text text-lg">Job Category</span>
                     </label>
                     <label className="input-group">
-                        <input type="text" name="category" placeholder="On Site Job/Remote Job/Hybrid Job/Part Time Job/Full-Time Job/Contract Job" className="input input-bordered w-full md:w-full" />
+                        <input type="text" name="category" defaultValue={selectedCategory} placeholder="Job Category" className="input input-bordered w-full md:w-full" />
+                        <select value={selectedCategory} onChange={handleSelectedCategory} name="" id="">
+
+                            <option value="On Site">On Site</option>
+                            <option value="Remote Job">Remote Job</option>
+                            <option value="Hybrid Job">Hybrid Job</option>
+                            <option value="Part Time Job">Part Time Job</option>
+                            <option value="Full Time Job">Full Time Job</option>
+                            <option value="Contract Job">Contract Job</option>
+                            
+                        </select>
                     </label>
                 </div>
                 {/* form row  */}
