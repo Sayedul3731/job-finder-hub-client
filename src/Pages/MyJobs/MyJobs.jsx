@@ -32,6 +32,7 @@ const MyJobs = () => {
                             <th>Deadline</th>
                             <th>Salary Range</th>
                             <th>Button</th>
+                            <th>Button</th>
                         </tr>
                     </thead>
                     <tbody>
