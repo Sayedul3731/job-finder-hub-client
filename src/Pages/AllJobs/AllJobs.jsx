@@ -54,10 +54,10 @@ const AllJobs = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                          jobsByTitle.length > 0 ? jobsByTitle.map(job => <AllJobsRow
+                          jobsByTitle?.length > 0 ? jobsByTitle?.map(job => <AllJobsRow
                           key={job._id}
                           job={job}
-                          ></AllJobsRow>):  jobs.map(job => <AllJobsRow
+                          ></AllJobsRow>):  jobs?.map(job => <AllJobsRow
                                 key={job._id}
                                 job={job}
                             ></AllJobsRow>)

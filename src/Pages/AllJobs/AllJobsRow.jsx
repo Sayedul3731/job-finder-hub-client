@@ -25,7 +25,7 @@ const AllJobsRow = ({ job }) => {
             </td>
             <td>{salary}</td>
             <th>
-                <Link to={`/allJobs/:${_id}`} className="btn btn-ghost btn-xs">details</Link>
+                <Link to={`/allJobs/${_id}`} className="btn btn-ghost btn-xs">details</Link>
             </th>
         </tr>
     );
