@@ -1,19 +1,17 @@
 // import axios from "axios";
 // import { useEffect } from "react";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom"
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
 
 const JobDetails = () => {
 
-    // useEffect( () => {
-    //     axios.get('/allJobs/:id')
-    //     .then(res => {
-    //         console.log(res.data);
-    //     })
-    // },[])
+    const {user } = useContext(AuthContext)
+   
     const job = useLoaderData()
     console.log(job);
-    const { logo, title, description, salary,applicants } = job;
+    const { logo, title, description, salary, applicants } = job;
     return (
         <div className="py-10">
             <div className="min-h-screen bg-base-100 shadow-sm border border-sky-500 w-5/6 mx-auto">
@@ -36,7 +34,39 @@ const JobDetails = () => {
                     <p className="text-xl font-semibold">Salary Range: {salary}</p>
                     <p className="text-xl font-semibold">Applicants: {applicants}</p>
                     <div className="card-actions justify-end mt-5">
-                        <button className="px-10 py-3 text-2xl font-semibold text-white bg-sky-400">Apply</button>
+                        <button onClick={() => document.getElementById('modal').showModal()} className="px-10 py-3 text-2xl font-semibold text-white bg-sky-400">Apply</button>
+
+                        {/* Open the modal using document.getElementById('ID').showModal() method */}
+                        <dialog id="modal" className="modal modal-bottom sm:modal-middle">
+                            <div className="modal-box">
+                                <form>
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text text-lg">User Name</span>
+                                        </label>
+                                        <input type="text" defaultValue={user ? user?.displayName : ' '} placeholder="User Name" name="name" className="input input-bordered" required />
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text text-lg">Email</span>
+                                        </label>
+                                        <input type="email" defaultValue={user ? user?.email : ' '} placeholder="email" name="email" className="input input-bordered" required />
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text text-lg">Resume</span>
+                                        </label>
+                                        <input type="text" placeholder="Resume Link Push Here..." name="resume" className="input input-bordered" required />
+                                    </div>
+                                    <div className="modal-action">
+                                        <form method="dialog">
+                                            {/* if there is a button in form, it will close the modal */}
+                                            <button className="btn">Close</button>
+                                        </form>
+                                    </div>
+                                </form>
+                            </div>
+                        </dialog>
                     </div>
                 </div>
             </div>
