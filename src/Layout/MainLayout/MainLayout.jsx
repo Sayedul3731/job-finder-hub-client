@@ -7,15 +7,12 @@ import {useEffect} from "react"
 const MainLayout = () => {
 
   const location = useLocation()
-  console.log(location);
 
   useEffect(() => {
     if(location.pathname == '/'){
-      console.log('yes');
       document.title = 'JobFInderHub | Home'
     }else{
       document.title = `JobFinderHub ${location.pathname.replace('/', '| ')}`
-      console.log('no');
     }
   }, [location.pathname])
 
