@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 
-
 const AppliedJobsRow = ({ appliedJob }) => {
     console.log(appliedJob);
     const { title, salary, applicants, category, description, logo, photo } = appliedJob;
