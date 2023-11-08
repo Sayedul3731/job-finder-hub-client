@@ -2,6 +2,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useEffect, useState } from "react"
 import axios from "axios"
 import JobByCategory from './JobByCategory';
+import  './JobsByCategory.css'
 
 const JobsByCategory = () => {
 
@@ -48,23 +49,23 @@ const JobsByCategory = () => {
         const fullTimeJobs = jobs.filter(job => job.category === 'Full Time Job')
         setFullTimeJobs(fullTimeJobs)
     }
+   
 
     return (
         <Tabs className="text-center my-10">
             <h1 className='text-4xl font-semibold mb-5'>Jobs By Category</h1>
-            <div className='flex justify-center'>
+            <div className='flex justify-center container'>
                 <TabList className="flex gap-5 mb-5">
-                    <Tab onClick={handleAllJobs} className="cursor-pointer text-xl font-medium bg-sky-300 hover:bg-sky-500 px-5 py-2">All Jobs</Tab>
-                    <Tab onClick={handleOnSiteJobs} className="cursor-pointer text-xl font-medium bg-sky-300 hover:bg-sky-500 px-5 py-2">On Site Job</Tab>
-                    <Tab onClick={handleRemoteJobs} className="cursor-pointer text-xl font-medium bg-sky-300 hover:bg-sky-500 px-5 py-2">Remote Job</Tab>
-                    <Tab onClick={handleHybridJobs} className="cursor-pointer text-xl font-medium bg-sky-300 hover:bg-sky-500 px-5 py-2">Hybrid</Tab>
-                    <Tab onClick={handlePartTimeJobs} className="cursor-pointer text-xl font-medium bg-sky-300 hover:bg-sky-500 px-5 py-2">Part Time</Tab>
-                    <Tab onClick={handleFullTimeJobs} className="cursor-pointer text-xl font-medium bg-sky-300 hover:bg-sky-500 px-5 py-2">Full Time</Tab>
+                    <Tab onClick={handleAllJobs} >All Jobs</Tab>
+                    <Tab onClick={handleOnSiteJobs} >On Site Job</Tab>
+                    <Tab onClick={handleRemoteJobs} >Remote Job</Tab>
+                    <Tab onClick={handleHybridJobs}  >Hybrid</Tab>
+                    <Tab onClick={handlePartTimeJobs} >Part Time</Tab>
+                    <Tab onClick={handleFullTimeJobs} >Full Time</Tab>
                 </TabList>
             </div>
 
             <TabPanel>
-                <h2>All Jobs</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                     {
                         allJobs.map(allJob => <JobByCategory
@@ -75,7 +76,6 @@ const JobsByCategory = () => {
                 </div>
             </TabPanel>
             <TabPanel>
-                <h2>On site Job</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                     {
                         onSiteJobs.map(onSiteJob => <JobByCategory
@@ -86,7 +86,7 @@ const JobsByCategory = () => {
                 </div>
             </TabPanel>
             <TabPanel>
-                <h2>Remote Job</h2>
+
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                     {
                         remoteJobs.map(remoteJob => <JobByCategory
@@ -97,7 +97,6 @@ const JobsByCategory = () => {
                 </div>
             </TabPanel>
             <TabPanel>
-                <h2>Hybrid</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                     {
                         hybridJobs.map(hybridJob => <JobByCategory
@@ -108,7 +107,6 @@ const JobsByCategory = () => {
                 </div>
             </TabPanel>
             <TabPanel>
-                <h2>Part Time</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                     {
                         partTimeJobs.map(partTimeJob => <JobByCategory
@@ -119,7 +117,6 @@ const JobsByCategory = () => {
                 </div>
             </TabPanel>
             <TabPanel>
-                <h2>Full Time</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                     {
                         fullTimeJobs.map(fullTimeJob => <JobByCategory
