@@ -5,7 +5,7 @@ const Blogs = () => {
     return (
         <div className="px-5">
             <h1 className="text-5xl font-semibold text-center my-5"> Blogs </h1>
-            <h1 className="text-4xl font-semibold mb-3">What is an access token and refresh token?</h1>
+            <h1 className="text-2xl font-semibold mb-3">What is an access token and refresh token?</h1>
             <p>
                 <h3 className="text-xl font-semibold">- Access Token: </h3>
                 <ul className="pl-5">
@@ -24,11 +24,11 @@ const Blogs = () => {
                     </li>
                 </ul>
             </p>
-            <h1 className="text-4xl font-semibold mb-3 mt-3">How do they work and where should we
+            <h1 className="text-2xl font-semibold mb-3 mt-3">How do they work and where should we
                 store them on the client-side?
             </h1>
             <p>
-                <h2 className="text-2xl font-semibold pl-1">How Access Tokens and Refresh Tokens Work:</h2>
+                <h2 className="text-xl font-semibold pl-1">How Access Tokens and Refresh Tokens Work:</h2>
                 <h3><span className="text-xl font-semibold mt-3">- Access Token:</span>
                     <ul>
                         <li className="pl-5">

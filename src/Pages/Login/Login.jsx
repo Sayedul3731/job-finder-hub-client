@@ -4,6 +4,7 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 
 
@@ -30,6 +31,12 @@ const Login = () => {
                     'success'
                 ).then(result => {
                     if(result.isConfirmed){
+                        const user = {email: email}
+                        axios.post('http://localhost:5000/jwt', user, {withCredentials: true} )
+                        .then(res => {
+                            console.log(res.data);
+                        })
+
                         navigate( location.state ? location.state : '/')
                     }
                 })

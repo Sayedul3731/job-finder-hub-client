@@ -10,18 +10,20 @@ const Navbar = () => {
     <>
       <li><NavLink className="lg:text-xl md:font-medium mr-4" to="/">Home</NavLink></li>
       <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/allJobs">All Jobs</NavLink></li>
-      <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/appliedJobs">Applied Jobs</NavLink></li>
-      <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/addAJob">Add A Job</NavLink></li>
-      <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/myJobs">My Jobs</NavLink></li>
+      {
+        user?.email ? <>  <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/appliedJobs">Applied Jobs</NavLink></li>
+          <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/addAJob">Add A Job</NavLink></li>
+          <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/myJobs">My Jobs</NavLink></li></> : ''
+      }
       <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/blogs">Blogs</NavLink></li>
     </>
   );
 
-const handleSignOut = () => {
-  logOut()
-  .then()
-  .catch()
-}
+  const handleSignOut = () => {
+    logOut()
+      .then()
+      .catch()
+  }
 
 
   return (

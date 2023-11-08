@@ -13,7 +13,7 @@ const AppliedJobs = () => {
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}`)
+        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}`, {withCredentials:true})
             .then(res => {
                 setAppliedJobs(res.data);
             })
@@ -30,7 +30,7 @@ const AppliedJobs = () => {
     return (
 
         <div>
-            <div className="border flex justify-end p-2">
+            <div className="flex justify-end p-2">
             <button onClick={() => toPDF()} className="underline font-bold">Download PDF</button>
             </div>
             <div>

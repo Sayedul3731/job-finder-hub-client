@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import axios from "axios";
 
 
 const AddAJob = () => {
@@ -30,24 +31,18 @@ const AddAJob = () => {
         const logo = form.logo.value;
         const newJob = { name,email, category, title, salary, description, jobPostingDate, deadline, applicants: parseInt(applicants), logo, photo };
         console.log(newJob);
-        fetch('http://localhost:5000/addAJob', {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(newJob)
+        axios.post('http://localhost:5000/addAJob',newJob, {withCredentials:true})
+        .then(res => {
+            console.log(res.data);
+            if (res.data?.insertedId) {
+                Swal.fire(
+                    'Success!',
+                    'Job added Successfully.',
+                    'success'
+                )
+            }
+
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.insertedId) {
-                    Swal.fire(
-                        'Success!',
-                        'Job added Successfully.',
-                        'success'
-                    )
-                }
-            })
     }
     return (
         <div className="bg-gradient-to-r from-sky-600 to-green-600 pb-10 pt-10 md:pt-7  p-1 md:p-24">
