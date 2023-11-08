@@ -28,7 +28,7 @@ const Update = () => {
         const logo = form.logo.value;
         const updateJob = { name,email, category, title, salary, description, jobPostingDate, deadline, applicants: parseInt(applicants), logo, photo };
         console.log(updateJob);
-        axios.patch(`https://job-finder-hub-server.vercel.app/update/${_id}`, updateJob)
+        axios.patch(`http://localhost:5000/update/${_id}`, updateJob)
         .then(res => {
             console.log(res.data);
             if(res?.data?.modifiedCount > 0){

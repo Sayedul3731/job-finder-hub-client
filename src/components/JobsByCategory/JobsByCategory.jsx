@@ -17,7 +17,7 @@ const JobsByCategory = () => {
     const [fullTimeJobs, setFullTimeJobs] = useState([])
 
     useEffect(() => {
-        axios.get('https://job-finder-hub-server.vercel.app/allJobs')
+        axios.get('http://localhost:5000/allJobs')
             .then(res => {
                 setJobs(res.data);
             })

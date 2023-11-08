@@ -4,7 +4,7 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
-import axios from "axios";
+
 
 
 const Login = () => {
@@ -31,12 +31,6 @@ const Login = () => {
                 ).then(result => {
                     if(result.isConfirmed){
                         navigate( location.state ? location.state : '/')
-                        const userEmail = {email:email}
-                        console.log(userEmail);
-                        axios.post('https://job-finder-hub-server.vercel.app/jwt', userEmail, {withCredentials: true})
-                        .then(res => {
-                            console.log(res.data);
-                        })
                     }
                 })
             })

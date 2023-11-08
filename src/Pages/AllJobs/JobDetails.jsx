@@ -33,7 +33,7 @@ const JobDetails = () => {
             )
             return;
         } else if (jobDeadline >= currentDate) {
-            axios.post(`https://job-finder-hub-server.vercel.app/allJobs?email=${user?.email}`, newJob)
+            axios.post(`http://localhost:5000/allJobs?email=${user?.email}`, newJob)
                 .then(res => {
                     console.log(res.data)
                     if (res?.data?.insertedId) {
