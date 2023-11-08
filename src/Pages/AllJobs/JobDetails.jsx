@@ -96,9 +96,9 @@ const JobDetails = () => {
                                         <input type="text" placeholder="Resume Link Push Here..." name="resume" className="input input-bordered" required />
                                     </div>
                                     <div className="modal-action">
-                                        <form method="dialog">
+                                        <form method="dialog" className="w-full">
                                             {/* if there is a button in form, it will close the modal */}
-                                            <button onClick={handleSubmit} className="btn">Submit</button>
+                                            <button onClick={handleSubmit} className="py-3 text-xl font-semibold text-white bg-sky-400 w-full border">Submit</button>
                                         </form>
                                     </div>
                                 </form>
