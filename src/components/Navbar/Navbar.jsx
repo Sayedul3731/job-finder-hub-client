@@ -62,6 +62,11 @@ const handleSignOut = () => {
         <ul className="flex px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
+        <div className="tooltip tooltip-left pr-2" data-tip={user?.displayName}>
+          {
+            user ? <img className="w-[50px] h-[50px] rounded-full" src={user?.photoURL} alt="" /> : ''
+          }
+        </div>
         {
           user ? <button className="border px-2 font-semibold rounded-sm" onClick={handleSignOut}>Log Out</button> : <Link to="/login" className=" text-xl px-3 py-1 font-bold rounded-sm">
             Login
