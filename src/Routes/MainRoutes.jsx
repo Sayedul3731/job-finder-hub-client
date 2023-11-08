@@ -10,6 +10,8 @@ import JobDetails from "../Pages/AllJobs/JobDetails";
 import MyJobs from "../Pages/MyJobs/MyJobs";
 import Update from "../components/Update/Update";
 import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
+import PrivetRoutes from "./PrivetRoutes";
+import Blogs from "../Pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/appliedJobs",
-        element: <AppliedJobs></AppliedJobs>
+        element: <PrivetRoutes><AppliedJobs></AppliedJobs></PrivetRoutes>
       },
       {
         path: "/allJobs",
@@ -43,8 +45,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/allJobs/:id",
-        element: <JobDetails></JobDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/allJobs/${params.id}`)
+        element: <PrivetRoutes><JobDetails></JobDetails></PrivetRoutes>,
+        loader: ({params}) => fetch(`https://job-finder-hub-server.vercel.app/allJobs/${params.id}`)
       },
       {
         path: "/myJobs",
@@ -53,7 +55,11 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <Update></Update>,
-        loader: ({params}) => fetch(`http://localhost:5000/update/${params.id}`)
+        loader: ({params}) => fetch(`https://job-finder-hub-server.vercel.app/update/${params.id}`)
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>
       }
     ],
   },

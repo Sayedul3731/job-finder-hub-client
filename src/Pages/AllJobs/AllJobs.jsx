@@ -8,7 +8,7 @@ const AllJobs = () => {
     const [jobsByTitle, setJobsByTitle] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allJobs')
+        axios.get('https://job-finder-hub-server.vercel.app/allJobs')
             .then(res => {
                 setJobs(res.data);
             })
@@ -29,7 +29,7 @@ const AllJobs = () => {
             <div className="flex justify-between mb-2 px-3 items-center">
                 <div>
                     <form onSubmit={handleJobsByTitle} className="flex justify-center items-center">
-                        <input type="text" name="search" placeholder="Search…" className="border px-2 py-[11px]" />
+                        <input type="text" name="search" placeholder="Search…" className="border px-2 py-[11px] border-sky-500" />
                         <button type="submit" className="bg-sky-400 -ml-[1px] py-[13px] px-3 ">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
@@ -42,7 +42,7 @@ const AllJobs = () => {
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr className="text-lg">
+                        <tr className="text-lg border border-sky-500">
                             <th>Name</th>
                             <th>Job Title</th>
                             <th>Posting Date</th>
@@ -51,7 +51,7 @@ const AllJobs = () => {
                             <th>Button</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="border border-sky-500">
                         {/* row 1 */}
                         {
                             jobsByTitle?.length > 0 ? jobsByTitle?.map(job => <AllJobsRow

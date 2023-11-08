@@ -30,7 +30,7 @@ const AddAJob = () => {
         const logo = form.logo.value;
         const newJob = { name,email, category, title, salary, description, jobPostingDate, deadline, applicants: parseInt(applicants), logo, photo };
         console.log(newJob);
-        fetch('http://localhost:5000/addAJob', {
+        fetch('https://job-finder-hub-server.vercel.app/addAJob', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

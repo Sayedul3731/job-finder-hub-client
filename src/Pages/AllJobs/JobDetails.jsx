@@ -11,26 +11,32 @@ import Swal from "sweetalert2";
 const JobDetails = () => {
 
     const { user } = useContext(AuthContext)
-
-
-
     const job = useLoaderData()
-    console.log(job);
-    const { logo, title, description, salary, applicants,photo } = job;
+
+    const { logo, title, description, salary, applicants, photo, email,category,jobPostingDate,name } = job;
 
     const handleSubmit = () => {
-        console.log('clicked on the submit button');
+
         const { deadline } = job;
         const dateObject = new Date(deadline);
         const jobDeadline = dateObject.getTime()
-        console.log(jobDeadline);
         const currentDate = Date.now()
-        console.log(currentDate);
-        if (jobDeadline >= currentDate) {
-            axios.post('http://localhost:5000/allJobs/:id', job)
+        console.log(user?.email, email);
+        const newJob = {
+            logo, title, description, salary, applicants, photo, email:user?.email,category,deadline,jobPostingDate,name
+        }
+        if (user?.email === email) {
+            Swal.fire(
+                'Oh Sorry!',
+                'It is your job.',
+                'error'
+            )
+            return;
+        } else if (jobDeadline >= currentDate) {
+            axios.post(`https://job-finder-hub-server.vercel.app/allJobs?email=${user?.email}`, newJob)
                 .then(res => {
                     console.log(res.data)
-                    if(res?.data?.insertedId){
+                    if (res?.data?.insertedId) {
                         Swal.fire(
                             'Success!',
                             'Submitted Successfully.',
@@ -38,7 +44,7 @@ const JobDetails = () => {
                         )
                     }
                 })
-        }else{
+        } else {
             Swal.fire(
                 'ERROR!',
                 'Deadline Is Over.',

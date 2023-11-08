@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 
-const AppliedJobsRow = ({ appliedJob }) => {
-    console.log(appliedJob);
-    const { title, salary, applicants, category, description, logo, photo } = appliedJob;
+const AppliedJobsRow = ({ appliedJob,filteredJob }) => {
+    const { title, salary, applicants, category, description, logo, photo } = appliedJob || filteredJob;
     return (
-        <tr className="text-base text-center">
+        <tr className="text-base text-center border border-sky-500">
             <td><img className="w-[100px]" src={logo} alt="" /></td>
             <td>
 
@@ -20,7 +19,7 @@ const AppliedJobsRow = ({ appliedJob }) => {
             </td>
             <td>{title}</td>
             <td>{category}</td>
-            <td>{description.slice(0, 100)}<span className="cursor-pointer">...see more</span></td>
+            <td >{description.slice(0, 100)}<span className="cursor-pointer">...see more</span></td>
             <td>{salary}</td>
             <td>{applicants}</td>
         </tr>

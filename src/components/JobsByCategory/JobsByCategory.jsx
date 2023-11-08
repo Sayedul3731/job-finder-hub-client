@@ -17,7 +17,7 @@ const JobsByCategory = () => {
     const [fullTimeJobs, setFullTimeJobs] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allJobs')
+        axios.get('https://job-finder-hub-server.vercel.app/allJobs')
             .then(res => {
                 setJobs(res.data);
             })
@@ -56,12 +56,12 @@ const JobsByCategory = () => {
             <h1 className='text-4xl font-semibold mb-5'>Jobs By Category</h1>
             <div className='flex justify-center container'>
                 <TabList className="flex gap-5 mb-5">
-                    <Tab onClick={handleAllJobs} >All Jobs</Tab>
-                    <Tab onClick={handleOnSiteJobs} >On Site Job</Tab>
-                    <Tab onClick={handleRemoteJobs} >Remote Job</Tab>
-                    <Tab onClick={handleHybridJobs}  >Hybrid</Tab>
-                    <Tab onClick={handlePartTimeJobs} >Part Time</Tab>
-                    <Tab onClick={handleFullTimeJobs} >Full Time</Tab>
+                    <Tab onClick={handleAllJobs} className="text-xl font-semibold bg-gray-300 px-4 py-1 cursor-pointer">All Jobs</Tab>
+                    <Tab onClick={handleOnSiteJobs} className="text-xl font-semibold bg-gray-300 px-4 py-1 cursor-pointer">On Site Job</Tab>
+                    <Tab onClick={handleRemoteJobs} className="text-xl font-semibold bg-gray-300 px-4 py-1 cursor-pointer">Remote Job</Tab>
+                    <Tab onClick={handleHybridJobs}  className="text-xl font-semibold bg-gray-300 px-4 py-1 cursor-pointer">Hybrid</Tab>
+                    <Tab onClick={handlePartTimeJobs} className="text-xl font-semibold bg-gray-300 px-4 py-1 cursor-pointer">Part Time</Tab>
+                    <Tab onClick={handleFullTimeJobs} className="text-xl font-semibold bg-gray-300 px-4 py-1 cursor-pointer">Full Time</Tab>
                 </TabList>
             </div>
 

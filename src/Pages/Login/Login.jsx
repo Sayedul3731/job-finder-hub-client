@@ -1,15 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react"
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 
 const Login = () => {
     const [show, setShow] = useState(false)
 
     const { login, logInWithGoogle } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
 
 
     const handleLogin = e => {
@@ -25,10 +28,25 @@ const Login = () => {
                     'Succes!',
                     'User Logged In Successfully.',
                     'success'
-                )
+                ).then(result => {
+                    if(result.isConfirmed){
+                        navigate( location.state ? location.state : '/')
+                        const userEmail = {email:email}
+                        console.log(userEmail);
+                        axios.post('https://job-finder-hub-server.vercel.app/jwt', userEmail, {withCredentials: true})
+                        .then(res => {
+                            console.log(res.data);
+                        })
+                    }
+                })
             })
             .catch(error => {
                 console.error(error);
+                Swal.fire(
+                    'ERROR!',
+                    `${error.message}`,
+                    'error'
+                )
             })
 
     }
