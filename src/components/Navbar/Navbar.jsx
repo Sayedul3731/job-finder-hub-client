@@ -5,12 +5,12 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 const Navbar = () => {
 
   const { logOut, user } = useContext(AuthContext)
-
-
+ 
+  
 
   const navLinks = (
     <>
-      <li><NavLink className="lg:text-xl md:font-medium mr-4" to="/">Home</NavLink></li>
+      <li><NavLink  className="lg:text-xl md:font-medium mr-4"  to="/">Home</NavLink></li>
       <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/allJobs">All Jobs</NavLink></li>
       {
         user?.email ? <>  <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/appliedJobs">Applied Jobs</NavLink></li>

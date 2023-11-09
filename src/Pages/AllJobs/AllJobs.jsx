@@ -18,7 +18,7 @@ const AllJobs = () => {
         e.preventDefault()
         const inputFieldValue = e.target.search.value;
         console.log(inputFieldValue);
-        const titleBasedJobs = jobs.filter(job => job.title === inputFieldValue)
+        const titleBasedJobs = jobs.filter(job => job.title.toLowerCase() === inputFieldValue.toLowerCase())
         setJobsByTitle(titleBasedJobs)
         e.target.value = ''
     }
