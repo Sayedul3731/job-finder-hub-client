@@ -1,7 +1,15 @@
+import {motion} from "framer-motion"
+
 const Banner = () => {
   return (
-    <div className="w-full h-[500px] flex justify-center items-center bg-gradient-to-r from-sky-500 to-blue-500">
-      <div className="text-center text-white">
+    <div className="w-full h-[500px] flex justify-center items-center bg-gradient-to-r from-sky-500 to-blue-500"
+    >
+      <motion.div className="text-center text-white"
+      
+      animate={{ x: [0, 50, 0] }}
+      transition={{ ease: "easeOut", duration: 3 }}
+
+      >
         <h1 className="text-5xl my-5">Find Your Dream Job with Job Finder Hub</h1>
         <p className="text-lg mb-5">Discover your dream job with Job Finder Hub. We connect job seekers <br /> with thousands of opportunities worldwide. Explore a vast job database, <br /> advanced search filters, and user-friendly tools. Join us to take the next step in your career.</p>
         <div className="form-control ">
@@ -13,7 +21,7 @@ const Banner = () => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -26,7 +26,7 @@ const MyJobsRow = ({ myJob }) => {
                 confirmButtonText: "Yes, delete it!"
               }).then((result) => {
                 if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/myJobs/${_id}`)
+                axios.delete(`https://job-finder-hub-server.vercel.app/myJobs/${_id}`)
                 .then(res => {
                     console.log(res.data);
                     if(res?.data?.deletedCount > 0){

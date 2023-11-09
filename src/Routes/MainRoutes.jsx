@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout/MainLayout";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AddAJob from "../Pages/AddAJob/AddAJob";
@@ -12,6 +11,7 @@ import Update from "../components/Update/Update";
 import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
 import PrivetRoutes from "./PrivetRoutes";
 import Blogs from "../Pages/Blogs/Blogs";
+import AnimationRoutes from "./AnimationRoutes";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <AnimationRoutes></AnimationRoutes>,
       },
       {
         path: "login",
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       {
         path: "/allJobs/:id",
         element: <PrivetRoutes><JobDetails></JobDetails></PrivetRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/allJobs/${params.id}`)
+        loader: ({params}) => fetch(`https://job-finder-hub-server.vercel.app/allJobs/${params.id}`)
       },
       {
         path: "/myJobs",
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <Update></Update>,
-        loader: ({params}) => fetch(`http://localhost:5000/update/${params.id}`)
+        loader: ({params}) => fetch(`https://job-finder-hub-server.vercel.app/update/${params.id}`)
       },
       {
         path: "/blogs",

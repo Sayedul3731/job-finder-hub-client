@@ -20,6 +20,14 @@ const Register = () => {
         const password = form.password.value;
         const user = { name, photo, email, password }
         console.log(user);
+        if(!/(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}/.test(password)){
+            Swal.fire(
+                'Oh!',
+                'Password Should be at least 6 character, a capital letter and a special character.',
+                'error'
+            )
+            return;
+        }
         userCreate(email, password)
             .then(res => {
                 console.log(res.user);

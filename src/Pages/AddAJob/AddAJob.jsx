@@ -31,7 +31,7 @@ const AddAJob = () => {
         const logo = form.logo.value;
         const newJob = { name,email, category, title, salary, description, jobPostingDate, deadline, applicants: parseInt(applicants), logo, photo };
         console.log(newJob);
-        axios.post('http://localhost:5000/addAJob',newJob, {withCredentials:true})
+        axios.post('https://job-finder-hub-server.vercel.app/addAJob',newJob, {withCredentials:true})
         .then(res => {
             console.log(res.data);
             if (res.data?.insertedId) {

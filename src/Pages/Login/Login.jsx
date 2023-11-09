@@ -15,7 +15,7 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
 
-
+    
     const handleLogin = e => {
         e.preventDefault()
         const form = e.target;
@@ -32,7 +32,7 @@ const Login = () => {
                 ).then(result => {
                     if(result.isConfirmed){
                         const user = {email: email}
-                        axios.post('http://localhost:5000/jwt', user, {withCredentials: true} )
+                        axios.post('https://job-finder-hub-server.vercel.app/jwt', user, {withCredentials: true} )
                         .then(res => {
                             console.log(res.data);
                         })
