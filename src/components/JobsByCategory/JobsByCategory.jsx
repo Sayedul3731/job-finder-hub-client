@@ -15,6 +15,7 @@ const JobsByCategory = () => {
     const [hybridJobs, setHybridJobs] = useState([])
     const [partTimeJobs, setPartTimeJobs] = useState([])
     const [fullTimeJobs, setFullTimeJobs] = useState([])
+    const [toggleTab, setToggleTab] = useState(0)
 
     useEffect(() => {
         axios.get('http://localhost:5000/allJobs')
@@ -22,32 +23,38 @@ const JobsByCategory = () => {
                 setJobs(res.data);
             })
     }, [])
-    console.log(jobs.length);
 
-    const handleAllJobs = () => {
+    const handleAllJobs = (index) => {
         const allCategoryJobs = jobs.filter(job => job.category !== 'all jobs')
         setAllJobs(allCategoryJobs)
+        setToggleTab(index);
     }
+    console.log(toggleTab);
 
-    const handleOnSiteJobs = () => {
+    const handleOnSiteJobs = (index) => {
         const onSiteJobs = jobs.filter(job => job.category === 'On Site Job')
         setOnSiteJobs(onSiteJobs)
+        setToggleTab(index);
     }
-    const handleRemoteJobs = () => {
+    const handleRemoteJobs = (index) => {
         const remoteJobs = jobs.filter(job => job.category === 'Remote Job')
         setRemoteJobs(remoteJobs)
+         setToggleTab(index);
     }
-    const handleHybridJobs = () => {
+    const handleHybridJobs = (index) => {
         const hybridJobs = jobs.filter(job => job.category === 'Hybrid Job')
         setHybridJobs(hybridJobs)
+         setToggleTab(index);
     }
-    const handlePartTimeJobs = () => {
+    const handlePartTimeJobs = (index) => {
         const partTimeJobs = jobs.filter(job => job.category === 'Part Time Job')
         setPartTimeJobs(partTimeJobs)
+         setToggleTab(index);
     }
-    const handleFullTimeJobs = () => {
+    const handleFullTimeJobs = (index) => {
         const fullTimeJobs = jobs.filter(job => job.category === 'Full Time Job')
         setFullTimeJobs(fullTimeJobs)
+         setToggleTab(index);
     }
    
 
@@ -55,13 +62,13 @@ const JobsByCategory = () => {
         <Tabs className="text-center my-10">
             <h1 className='text-4xl font-semibold mb-5'>Jobs By Category</h1>
             <div className='flex justify-center container'>
-                <TabList className="flex gap-5 mb-5">
-                    <Tab onClick={handleAllJobs} className="text-xl font-semibold bg-gray-300 px-4 py-1 cursor-pointer">All Jobs</Tab>
-                    <Tab onClick={handleOnSiteJobs} className="text-xl font-semibold bg-gray-300 px-4 py-1 cursor-pointer">On Site Job</Tab>
-                    <Tab onClick={handleRemoteJobs} className="text-xl font-semibold bg-gray-300 px-4 py-1 cursor-pointer">Remote Job</Tab>
-                    <Tab onClick={handleHybridJobs}  className="text-xl font-semibold bg-gray-300 px-4 py-1 cursor-pointer">Hybrid</Tab>
-                    <Tab onClick={handlePartTimeJobs} className="text-xl font-semibold bg-gray-300 px-4 py-1 cursor-pointer">Part Time</Tab>
-                    <Tab onClick={handleFullTimeJobs} className="text-xl font-semibold bg-gray-300 px-4 py-1 cursor-pointer">Full Time</Tab>
+                <TabList className="flex gap-5 flex-col md:flex-row lg:flex-row mb-5">
+                    <Tab onClick={() => handleAllJobs(1)} className={toggleTab == 1 ? "active bg-sky-500 " : "inActive bg-gray-300"}>All Jobs</Tab>
+                    <Tab onClick={() => handleOnSiteJobs(2)} className={toggleTab == 2 ? "active bg-sky-500 " : "inActive bg-gray-300"}>On Site Job</Tab>
+                    <Tab onClick={() => handleRemoteJobs(3)} className={toggleTab == 3 ? "active bg-sky-500 " : "inActive bg-gray-300"}>Remote Job</Tab>
+                    <Tab onClick={() => handleHybridJobs(4)} className={toggleTab == 4 ? "active bg-sky-500 " : "inActive bg-gray-300"}>Hybrid</Tab>
+                    <Tab onClick={() => handlePartTimeJobs(5)} className={toggleTab == 5 ? "active bg-sky-500 " : "inActive bg-gray-300"}>Part Time</Tab>
+                    <Tab onClick={() => handleFullTimeJobs(6)} className={toggleTab == 6 ? "active bg-sky-500 " : "inActive bg-gray-300"}>Full Time</Tab>
                 </TabList>
             </div>
 

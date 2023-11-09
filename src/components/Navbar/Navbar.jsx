@@ -6,6 +6,8 @@ const Navbar = () => {
 
   const { logOut, user } = useContext(AuthContext)
 
+
+
   const navLinks = (
     <>
       <li><NavLink className="lg:text-xl md:font-medium mr-4" to="/">Home</NavLink></li>

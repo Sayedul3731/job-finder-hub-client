@@ -13,7 +13,7 @@ const JobDetails = () => {
     const { user } = useContext(AuthContext)
     const job = useLoaderData()
 
-    const { logo, title, description, salary, applicants, photo, email,category,jobPostingDate,name } = job;
+    const { logo, title, description, salary, applicants, photo, email, category, jobPostingDate, name, _id } = job;
 
     const handleSubmit = () => {
 
@@ -23,7 +23,7 @@ const JobDetails = () => {
         const currentDate = Date.now()
         console.log(user?.email, email);
         const newJob = {
-            logo, title, description, salary, applicants, photo, email:user?.email,category,deadline,jobPostingDate,name
+            logo, title, description, salary, applicants, photo, email: user?.email, category, deadline, jobPostingDate, name
         }
         if (user?.email === email) {
             Swal.fire(
@@ -42,6 +42,22 @@ const JobDetails = () => {
                             'Submitted Successfully.',
                             'success'
                         )
+                        try {
+                            fetch(`http://localhost:5000/allJobs/${_id}`, {
+                                method: "PATCH",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                            })
+                                .then((res) => res.json())
+                                .then((data) => {
+                                    if (data.modifiedCount) {
+                                        console.log('for applicant',data);
+                                    }
+                                });
+                        } catch (error) {
+                            console.log(error);
+                        }
                     }
                 })
         } else {

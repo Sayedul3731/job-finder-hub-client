@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import JobByLocation from "./JobByLocation";
+import axios from "axios";
 
 const JobsByLocation = () => {
 
     const [jobsLocation, setJobsLocation] = useState([])
 
-    useEffect( () => {
-        fetch('location.json')
-        .then(res => res.json())
-        .then(data => setJobsLocation(data))
-    },[])
+  useEffect(() => {
+    axios.get('http://localhost:5000/jobsByLocation')
+    .then(res => {
+        console.log(res.data)
+        setJobsLocation(res.data)
+    })
+  },[])
+  
     return (
         <div>
             <h1 className="text-4xl font-semibold text-center">Jobs By Location</h1>
