@@ -18,20 +18,13 @@ const AppliedJobs = () => {
                 setAppliedJobs(res.data);
             })
     }, [user?.email])
-    console.log(appliedJobs);
+    console.log(appliedJobs,filteredJobs);
     const handleJobsByCategory = (e) => {
         e.preventDefault()
         const val = e.target.value;
         setSelectCategory(val)
         const filteredJobs = appliedJobs.filter(job => job.category.toLowerCase() === val.toLowerCase())
-        console.log(filteredJobs.length);
-        if(filteredJobs.length > 0){
-
-            setFilteredJobs(filteredJobs)
-        }else{
-            setFilteredJobs([])
-        }
-        
+        setFilteredJobs(filteredJobs)
     }
 
     return (
