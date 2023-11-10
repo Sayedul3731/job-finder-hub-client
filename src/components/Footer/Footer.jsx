@@ -13,13 +13,13 @@ const Footer = () => {
           </p>
         
         </aside>
-        <nav>
+        <nav className="font-semibold">
           <header className="footer-title">Company</header>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
         </nav>
-        <nav>
+        <nav className="font-semibold">
           <header className="footer-title">Address</header>
           <a className="link link-hover">House No. 123, Road No.5</a>
           <a className="link link-hover">Brahmanbaria</a>
@@ -47,7 +47,7 @@ const Footer = () => {
           </div>
         </nav>
       </footer>
-      <footer className="footer px-10 py-4 border-t bg-sky-500 text-base-content border-base-300">
+      <footer className="footer px-10 py-4 border-t flex justify-center font-semibold bg-sky-500 text-base-content border-base-300">
       <p>Copyright © 2023 - All right reserved</p>
 </footer>
     </div>

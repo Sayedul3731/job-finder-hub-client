@@ -13,7 +13,7 @@ const MyJobs = () => {
     console.log(userEmail);
 
     useEffect(() => {
-        axios.get(`https://job-finder-hub-server.vercel.app/allJobs?email=${user?.email}`)
+        axios.get(`http://localhost:5000/allJobs?email=${user?.email}`)
         .then(res => {
             setMyJobs(res.data);
         })
@@ -24,7 +24,7 @@ const MyJobs = () => {
                 <table className="table">
                     {/* head */}
                     <thead className="border border-sky-500">
-                        <tr className="text-lg border border-sky-500">
+                        <tr className="text-lg text-black border border-sky-500">
                             <th>Name</th>
                             <th>Job Title</th>
                             <th>Posting Date</th>

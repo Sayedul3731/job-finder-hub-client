@@ -10,9 +10,7 @@ const MyJobsRow = ({ myJob }) => {
     const { _id, name, title, jobPostingDate, deadline, salary } = myJob;
     const { user } = useContext(AuthContext)
     console.log(user);
-    // const handleUpdate = () => {
-    //     console.log('clicked update');
-    // }
+   
     const handleDelete = () => {
         console.log('clicked delete');
       
@@ -26,7 +24,7 @@ const MyJobsRow = ({ myJob }) => {
                 confirmButtonText: "Yes, delete it!"
               }).then((result) => {
                 if (result.isConfirmed) {
-                axios.delete(`https://job-finder-hub-server.vercel.app/myJobs/${_id}`)
+                axios.delete(`http://localhost:5000/myJobs/${_id}`)
                 .then(res => {
                     console.log(res.data);
                     if(res?.data?.deletedCount > 0){
@@ -41,7 +39,7 @@ const MyJobsRow = ({ myJob }) => {
         
     }
     return (
-        <tr className="text-base">
+        <tr className="text-base text-gray-900">
             <td>
                 {name}
             </td>

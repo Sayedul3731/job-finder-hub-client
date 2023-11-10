@@ -5,19 +5,41 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 const Navbar = () => {
 
   const { logOut, user } = useContext(AuthContext)
- 
-  
+
 
   const navLinks = (
     <>
-      <li><NavLink  className="lg:text-xl md:font-medium mr-4"  to="/">Home</NavLink></li>
-      <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/allJobs">All Jobs</NavLink></li>
+      <li>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "lg:text-xl md:font-medium mr-4 underline" : "lg:text-xl md:font-medium mr-4"} to="/" >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "lg:text-xl md:font-medium mr-4 underline" : "lg:text-xl md:font-medium mr-4"} to="/allJobs">
+          All Jobs
+        </NavLink>
+      </li>
       {
-        user?.email ? <>  <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/appliedJobs">Applied Jobs</NavLink></li>
-          <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/addAJob">Add A Job</NavLink></li>
-          <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/myJobs">My Jobs</NavLink></li></> : ''
+        user?.email ? <>  <li><NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "lg:text-xl md:font-medium mr-4 underline" : "lg:text-xl md:font-medium mr-4"} to="/appliedJobs">
+          Applied Jobs
+        </NavLink>
+        </li>
+          <li>
+            <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "lg:text-xl md:font-medium mr-4 underline" : "lg:text-xl md:font-medium mr-4"} to="/addAJob">
+              Add A Job
+            </NavLink>
+          </li>
+          <li><NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "lg:text-xl md:font-medium mr-4 underline" : "lg:text-xl md:font-medium mr-4"} to="/myJobs">
+            My Jobs
+          </NavLink>
+          </li>
+        </> : ''
       }
-      <li><NavLink className="lg:text-xl md:font-medium mr-4 mt-1 md:mt-1 lg:mt-0" to="/blogs">Blogs</NavLink></li>
+      <li>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "lg:text-xl md:font-medium mr-4 underline" : "lg:text-xl md:font-medium mr-4"} to="/blogs">
+          Blogs
+        </NavLink>
+      </li>
     </>
   );
 
@@ -72,7 +94,7 @@ const Navbar = () => {
           }
         </div>
         {
-          user ? <button className="border px-2 font-semibold rounded-sm" onClick={handleSignOut}>Log Out</button> : <Link to="/login" className=" text-xl px-3 py-1 font-bold rounded-sm">
+          user ? <button className="border border-sky-400 py-1 px-2 font-semibold rounded-sm" onClick={handleSignOut}>Log Out</button> : <Link to="/login" className=" text-xl px-3 py-1 font-bold rounded-sm">
             Login
           </Link>
         }

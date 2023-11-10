@@ -13,7 +13,7 @@ const AppliedJobs = () => {
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        axios.get(`https://job-finder-hub-server.vercel.app/appliedJobs?email=${user?.email}`, {withCredentials:true})
+        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}`, { withCredentials: true })
             .then(res => {
                 setAppliedJobs(res.data);
             })
@@ -24,15 +24,23 @@ const AppliedJobs = () => {
         const val = e.target.value;
         setSelectCategory(val)
         const filteredJobs = appliedJobs.filter(job => job.category.toLowerCase() === val.toLowerCase())
-        setFilteredJobs(filteredJobs)
+        console.log(filteredJobs.length);
+        if(filteredJobs.length > 0){
+
+            setFilteredJobs(filteredJobs)
+        }else{
+            setFilteredJobs([])
+        }
+        
     }
 
     return (
 
         <div>
             <div className="flex justify-end p-2">
-            <button onClick={() => toPDF()} className="underline font-bold">Download PDF</button>
+                <button onClick={() => toPDF()} className="underline font-bold">Download PDF</button>
             </div>
+            <h1 className="text-4xl font-semibold text-center">Applied Jobs Here </h1>
             <div>
                 <div className=" flex justify-start my-5">
                     <form className="flex justify-center items-center border border-sky-500">
@@ -46,11 +54,11 @@ const AppliedJobs = () => {
                         </select>
                     </form>
                 </div>
-                <div  ref={targetRef} className="overflow-x-auto">
+                <div ref={targetRef} className="overflow-x-auto">
                     <table className="table mb-5">
                         {/* head */}
                         <thead>
-                            <tr className="text-lg text-center border border-sky-500">
+                            <tr className="text-lg text-center text-black border border-sky-500">
                                 <th>Company Logo</th>
                                 <th className="">Job Banner</th>
                                 <th>Job Title</th>

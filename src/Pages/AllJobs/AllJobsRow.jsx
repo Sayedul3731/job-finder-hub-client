@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const AllJobsRow = ({ job }) => {
     const {_id, name, title, jobPostingDate, deadline, salary} = job;
     return (
-        <tr className="text-base">
+        <tr className="text-base text-gray-900 font-semibold">
             <td>
               {name}
             </td>
@@ -25,7 +25,7 @@ const AllJobsRow = ({ job }) => {
             </td>
             <td>{salary}</td>
             <th>
-                <Link to={`/allJobs/${_id}`} className="btn btn-ghost btn-xs">details</Link>
+                <Link to={`/allJobs/${_id}`} className="">Details</Link>
             </th>
         </tr>
     );

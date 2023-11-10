@@ -18,7 +18,7 @@ const JobsByCategory = () => {
     const [toggleTab, setToggleTab] = useState(0)
 
     useEffect(() => {
-        axios.get('https://job-finder-hub-server.vercel.app/allJobs')
+        axios.get('http://localhost:5000/allJobs')
             .then(res => {
                 setJobs(res.data);
             })
@@ -63,12 +63,12 @@ const JobsByCategory = () => {
             <h1 className='text-4xl font-semibold mb-5'>Jobs By Category</h1>
             <div className='flex justify-center container'>
                 <TabList className="flex gap-5 flex-col md:flex-row lg:flex-row mb-5">
-                    <Tab onClick={() => handleAllJobs(1)} className={toggleTab == 1 ? "active bg-sky-500 " : "inActive bg-gray-300"}>All Jobs</Tab>
-                    <Tab onClick={() => handleOnSiteJobs(2)} className={toggleTab == 2 ? "active bg-sky-500 " : "inActive bg-gray-300"}>On Site Job</Tab>
-                    <Tab onClick={() => handleRemoteJobs(3)} className={toggleTab == 3 ? "active bg-sky-500 " : "inActive bg-gray-300"}>Remote Job</Tab>
-                    <Tab onClick={() => handleHybridJobs(4)} className={toggleTab == 4 ? "active bg-sky-500 " : "inActive bg-gray-300"}>Hybrid</Tab>
-                    <Tab onClick={() => handlePartTimeJobs(5)} className={toggleTab == 5 ? "active bg-sky-500 " : "inActive bg-gray-300"}>Part Time</Tab>
-                    <Tab onClick={() => handleFullTimeJobs(6)} className={toggleTab == 6 ? "active bg-sky-500 " : "inActive bg-gray-300"}>Full Time</Tab>
+                    <Tab onClick={() => handleAllJobs(1)} className={toggleTab == 1 ? "active bg-green-400 " : "inActive bg-sky-400 pb-1"}>All Jobs</Tab>
+                    <Tab onClick={() => handleOnSiteJobs(2)} className={toggleTab == 2 ? "active bg-green-400 " : "inActive bg-sky-400 pb-1"}>On Site Job</Tab>
+                    <Tab onClick={() => handleRemoteJobs(3)} className={toggleTab == 3 ? "active bg-green-400 " : "inActive bg-sky-400 pb-1"}>Remote Job</Tab>
+                    <Tab onClick={() => handleHybridJobs(4)} className={toggleTab == 4 ? "active bg-green-400 " : "inActive bg-sky-400 pb-1"}>Hybrid</Tab>
+                    <Tab onClick={() => handlePartTimeJobs(5)} className={toggleTab == 5 ? "active bg-green-400 " : "inActive bg-sky-400 pb-1"}>Part Time</Tab>
+                    <Tab onClick={() => handleFullTimeJobs(6)} className={toggleTab == 6 ? "active bg-green-400 " : "inActive bg-sky-400 pb-1"}>Full Time</Tab>
                 </TabList>
             </div>
 
