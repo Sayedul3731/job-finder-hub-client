@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { useContext, useState } from "react"
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
+import axios from "axios";
 
 
 const Register = () => {
     const [show, setShow] = useState(false)
     const { userCreate } = useContext(AuthContext)
+    const navigate = useNavigate()
 
 
     const handleRegister = e => {
@@ -36,6 +38,12 @@ const Register = () => {
                     'User Created Successfully.',
                     'success'
                 )
+                const user = {email: email}
+                axios.post('http://localhost:5000/jwt', user, {withCredentials: true} )
+                .then(res => {
+                    console.log(res.data);
+                })
+                navigate( location.state ? location.state : '/')
                 updateProfile( res.user,{
                     displayName: name,
                     photoURL: photo
