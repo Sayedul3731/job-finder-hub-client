@@ -8,7 +8,7 @@ const AllJobs = () => {
     const [jobsByTitle, setJobsByTitle] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allJobs')
+        axios.get('https://job-finder-hub-server.vercel.app/allJobs')
             .then(res => {
                 setJobs(res.data);
             })

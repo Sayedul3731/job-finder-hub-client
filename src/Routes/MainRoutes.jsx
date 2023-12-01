@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       {
         path: "/allJobs/:id",
         element: <PrivetRoutes><JobDetails></JobDetails></PrivetRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/allJobs/${params.id}`)
+        loader: ({params}) => fetch(`https://job-finder-hub-server.vercel.app/allJobs/${params.id}`)
       },
       {
         path: "/myJobs",
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <Update></Update>,
-        loader: ({params}) => fetch(`http://localhost:5000/update/${params.id}`)
+        loader: ({params}) => fetch(`https://job-finder-hub-server.vercel.app/update/${params.id}`)
       },
       {
         path: "/blogs",
