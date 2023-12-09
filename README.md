@@ -1,15 +1,14 @@
 # JobFinderHub
-## Live Link:
-https://job-finder-hub.web.app/
-# Features:
-5 features my project 
-1. When a user intro my `JobFinderHub` then he/she will see a `Navbar` which have 3 pages `Home`, `All Jobs`, `Blogs` and a logo and my project name in the left side and a `Login` button in the right side. In the Home Page have a `Banner`, a `Jobs By Category`, a `Jobs By Location`, a `Top Recruiters` and a `Footer` section.
+## Live Link: https://job-finder-hub.web.app/
+# Features: 
+1. My project name is `HappyHostel` which is a `Hostel Mangement Site`. In the site has `Authentication System`, `Payment Method`, `Admin Pannel` & `User Dashboard` and also `Token` System for security purpose.
+2.  In this site a user can see all hostel facilities like all `Meals`, `Upcoming Meals`, `Memberships` & `Hostel Gallery` without login. If the user logged in so he/she will get another facilities like he can request, like and review on a meal & purchase memberships.
+3.  Logged in user can see his/her activities in the user `Dashboard`. If user click on his profile picture in the right-top of the site so he/she can see `Dashboard` button and also see his/her name and `LogOut` button.
+4.  In this site has `Admin Dashboard`. There are many Routes or Pages under admin dashboard such as `Admin Profile`, `Manage Users`, `Add Meal`, `All Meals`, `All Reviews`, `Serve Meals` and `Upcoming Meals`.Admin can do many things such as Admin can make a user as Admin, can add, delete, update and serve a meal, can delete meal reviews and can publich any upcoming meals. If the admin click on his profile in the right-top of the site so he/she can see `Dashboard` button and also see his/her name and `LogOut` button.
 
-2. If a user `Register` my project then he/she will see 6 pages wheres 3 above pages and another 3 pages `Applied Jobs`, `Add A Job` and `My Jobs`. In `Applied Jobs` user will see his/her all applied jobs and in `My Jobs` page the user will see his/her own jobs. If a user want to post a job then he/she will add a job in the `Add A Job` page.
+# Technologies:
+1. I used many technology in this project such as JavaScript as programming language, React.js, Tailwind css, DaisyUI and Material UI as front-end and mongoose, express.js, node.js as backend.
+2. In this project I used some package like `firebase`,`axios`,`react-dom`,`react-router-dom`, `@emotion/react`, `@mui/icons-material` ,`@emotion/styled`,`@stripe/react-stripe-js`, `@tanstack/react-query`,`react-hook-form`,`react-fast-marquee`,`react-icons`,`react-infinite-scroll-component`,`react-tabs`,`sweetalert2`,`swiper` etc.
 
-3. If a user click on the `All Jobs` page then he/she will see the all jobs like table. There is a search option where a user search a job by job category and every job has Name, Job title, Posting Date, Deadline, Salary Range and a button `Details`.
-
-4. If a user Click on the `Details` button then he/she will see the specific Job details. Wheres have a logo, job banner, position, description, salary range, applicants and a `Apply` button. 
-
-4. In `Jobs By Category section` there is 6 button they are `All Jobs`, `On Site Job`, `Remote Job`, `Hybrid`, `Part Time` and `Full Time`. If user click on the `All Jobs` button will see all jobs, on the `On Site Job` will see on site category jobs, in the same way will see the specific category jobs.
+* The server side deployed in `vercel` and client side deployed in `firebase`
 
