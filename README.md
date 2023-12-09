@@ -1,7 +1,7 @@
 # JobFinderHub
 ## Live Link:
 https://job-finder-hub.web.app/
-
+# Features:
 5 features my project 
 1. When a user intro my `JobFinderHub` then he/she will see a `Navbar` which have 3 pages `Home`, `All Jobs`, `Blogs` and a logo and my project name in the left side and a `Login` button in the right side. In the Home Page have a `Banner`, a `Jobs By Category`, a `Jobs By Location`, a `Top Recruiters` and a `Footer` section.
 
