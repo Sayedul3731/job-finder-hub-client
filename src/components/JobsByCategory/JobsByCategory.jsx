@@ -18,7 +18,7 @@ const JobsByCategory = () => {
     const [toggleTab, setToggleTab] = useState(0)
 
     useEffect(() => {
-        axios.get('https://job-finder-hub-server.vercel.app/allJobs')
+        axios.get('http://localhost:5000/allJobs')
             .then(res => {
                 setJobs(res.data);
             })

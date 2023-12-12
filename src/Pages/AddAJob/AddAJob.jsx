@@ -21,6 +21,7 @@ const AddAJob = () => {
         const name = form.name.value;
         const email = form.email.value;
         const category = form.category.value;
+        const internType = form.internType.value;
         const title = form.title.value;
         const salary = form.salary.value;
         const description = form.description.value;
@@ -29,20 +30,20 @@ const AddAJob = () => {
         const applicants = form.applicants.value;
         const photo = form.photo.value;
         const logo = form.logo.value;
-        const newJob = { name,email, category, title, salary, description, jobPostingDate, deadline, applicants: parseInt(applicants), logo, photo };
+        const newJob = { name, email, category,internType, title, salary, description, jobPostingDate, deadline, applicants: parseInt(applicants), logo, photo };
         console.log(newJob);
-        axios.post('https://job-finder-hub-server.vercel.app/addAJob',newJob, {withCredentials:true})
-        .then(res => {
-            console.log(res.data);
-            if (res.data?.insertedId) {
-                Swal.fire(
-                    'Success!',
-                    'Job added Successfully.',
-                    'success'
-                )
-            }
+        axios.post('http://localhost:5000/addAJob', newJob, { withCredentials: true })
+            .then(res => {
+                console.log(res.data);
+                if (res.data?.insertedId) {
+                    Swal.fire(
+                        'Success!',
+                        'Job added Successfully.',
+                        'success'
+                    )
+                }
 
-        })
+            })
     }
     return (
         <div className="bg-gradient-to-r from-sky-600 to-green-600 pb-10 pt-10 md:pt-7  p-1 md:p-24">
@@ -50,22 +51,34 @@ const AddAJob = () => {
 
             <form onSubmit={handleAddJob}>
                 {/* form row  */}
-                <div className="form-control w-full">
-                    <label className="label">
-                        <span className="label-text text-lg">Job Category</span>
-                    </label>
-                    <label className="input-group">
-                        <input type="text" name="category" defaultValue={selectedCategory} placeholder="Job Category" className="input input-bordered w-full md:w-full" />
-                        <select value={selectedCategory} onChange={handleSelectedCategory} name="" id="">
+                <div className="form-control w-full flex flex-row gap-5 ">
+                    <div className="w-1/2">
+                        <label className="label">
+                            <span className="label-text text-lg">Job Category</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="category" defaultValue={selectedCategory} placeholder="Job Category" className="input input-bordered w-full md:w-full" />
+                            <select value={selectedCategory} onChange={handleSelectedCategory} name="" id="">
 
-                            <option value="On Site Job">On Site Job</option>
-                            <option value="Remote Job">Remote Job</option>
-                            <option value="Hybrid Job">Hybrid Job</option>
-                            <option value="Part Time Job">Part Time Job</option>
-                            <option value="Full Time Job">Full Time Job</option>
-                            
-                        </select>
-                    </label>
+                                <option value="On Site Job">On Site Job</option>
+                                <option value="Remote Job">Remote Job</option>
+                                <option value="Hybrid Job">Hybrid Job</option>
+                                <option value="Part Time Job">Part Time Job</option>
+                                <option value="Full Time Job">Full Time Job</option>
+                                <option value="Internship Job">Internship Job</option>
+
+                            </select>
+                        </label>
+                    </div>
+
+                    <div className="form-control w-1/2">
+                        <label className="label">
+                            <span className="label-text text-lg">Internship Type</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="internType" placeholder="Paid/Unpaid" className="input input-bordered w-full md:w-full" />
+                        </label>
+                    </div>
                 </div>
                 {/* form row  */}
                 <div className="md:flex gap-5">

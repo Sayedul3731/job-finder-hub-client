@@ -12,6 +12,7 @@ import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
 import PrivetRoutes from "./PrivetRoutes";
 import Blogs from "../Pages/Blogs/Blogs";
 import AnimationRoutes from "./AnimationRoutes";
+import InternshipJobs from "../Pages/InternshipJobs/InternshipJobs";
 
 const router = createBrowserRouter([
   {
@@ -44,9 +45,13 @@ const router = createBrowserRouter([
         element: <AllJobs></AllJobs>
       },
       {
+        path: "/internshipJobs",
+        element: <InternshipJobs></InternshipJobs>
+      },
+      {
         path: "/allJobs/:id",
         element: <PrivetRoutes><JobDetails></JobDetails></PrivetRoutes>,
-        loader: ({params}) => fetch(`https://job-finder-hub-server.vercel.app/allJobs/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/allJobs/${params.id}`)
       },
       {
         path: "/myJobs",
@@ -55,7 +60,7 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <Update></Update>,
-        loader: ({params}) => fetch(`https://job-finder-hub-server.vercel.app/update/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/update/${params.id}`)
       },
       {
         path: "/blogs",

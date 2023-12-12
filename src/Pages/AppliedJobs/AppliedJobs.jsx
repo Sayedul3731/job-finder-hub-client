@@ -13,7 +13,7 @@ const AppliedJobs = () => {
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        axios.get(`https://job-finder-hub-server.vercel.app/appliedJobs?email=${user?.email}`, { withCredentials: true })
+        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}`, { withCredentials: true })
             .then(res => {
                 setAppliedJobs(res.data);
             })
