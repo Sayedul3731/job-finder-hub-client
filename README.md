@@ -1,14 +1,12 @@
 # JobFinderHub
-https://job-finder-hub.web.app/
+## Live Link: https://job-finder-hub.web.app/
+### Features: 
+1. My project name is `JobFinderHub` which is a `Job Management Site`. In the site has `Authentication System` and `Token` System for security purpose.
+2.  In this site a user can see some pages like `Home`, `All Jobs` and `Blogs`. In `Home` page he/she can see a `Banner`, `Jobs By Category`, `Jobs By Location`, `Top Recruiters` and a `Footer` section without login. If the user logged in so he/she will get another facilities like he/she can see some extra pages `Applied Jobs`, `Add A Job` and `My Jobs` and will see `Job Details` and apply any job except his/her jobs and he/she will add any job.The user can see his/her all applied jobs in the `Applied Jobs` page and his/her added jobs in `My Jobs` page.
 
-5 features my project 
-1. When a user intro my `JobFinderHub` then he/she will see a `Navbar` which have 3 pages `Home`, `All Jobs`, `Blogs` and a logo and my project name in the left side and a `Login` button in the right side. In the Home Page have a `Banner`, a `Jobs By Category`, a `Jobs By Location`, a `Top Recruiters` and a `Footer` section.
+### Technologies:
+1. I used many technology in this project such as JavaScript as programming language, React.js, Tailwind css, DaisyUI as front-end and mongodb, express.js, node.js as backend.
+2. In this project I used some package like `firebase`,`axios`,`react-dom`,`react-router-dom`, `@emotion/react`,`react-hook-form`,`react-icons`,`react-tabs`,`sweetalert2` etc.
 
-2. If a user `Register` my project then he/she will see 6 pages wheres 3 above pages and another 3 pages `Applied Jobs`, `Add A Job` and `My Jobs`. In `Applied Jobs` user will see his/her all applied jobs and in `My Jobs` page the user will see his/her own jobs. If a user want to post a job then he/she will add a job in the `Add A Job` page.
-
-3. If a user click on the `All Jobs` page then he/she will see the all jobs like table. There is a search option where a user search a job by job category and every job has Name, Job title, Posting Date, Deadline, Salary Range and a button `Details`.
-
-4. If a user Click on the `Details` button then he/she will see the specific Job details. Wheres have a logo, job banner, position, description, salary range, applicants and a `Apply` button. 
-
-4. In `Jobs By Category section` there is 6 button they are `All Jobs`, `On Site Job`, `Remote Job`, `Hybrid`, `Part Time` and `Full Time`. If user click on the `All Jobs` button will see all jobs, on the `On Site Job` will see on site category jobs, in the same way will see the specific category jobs.
+* The server side deployed in `vercel` and client side deployed in `firebase`
 
