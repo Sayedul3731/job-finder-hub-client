@@ -13,6 +13,7 @@ import PrivetRoutes from "./PrivetRoutes";
 import Blogs from "../Pages/Blogs/Blogs";
 import AnimationRoutes from "./AnimationRoutes";
 import InternshipJobs from "../Pages/InternshipJobs/InternshipJobs";
+import LatestJobs from "../Pages/LatestJobs/LatestJobs";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/internshipJobs",
         element: <InternshipJobs></InternshipJobs>
+      },
+      {
+        path: "/latestJobs",
+        element: <LatestJobs></LatestJobs>
       },
       {
         path: "/allJobs/:id",

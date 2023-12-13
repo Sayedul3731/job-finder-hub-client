@@ -24,6 +24,11 @@ const Navbar = () => {
           Internship Jobs
         </NavLink>
       </li>
+      <li>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "lg:text-xl md:font-medium mr-4 underline" : "lg:text-xl md:font-medium mr-4"} to="/latestJobs">
+          Latest Jobs
+        </NavLink>
+      </li>
       {
         user?.email ? <>  <li><NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "lg:text-xl md:font-medium mr-4 underline" : "lg:text-xl md:font-medium mr-4"} to="/appliedJobs">
           Applied Jobs
